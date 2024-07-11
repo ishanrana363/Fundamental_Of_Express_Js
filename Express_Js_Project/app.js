@@ -1,6 +1,8 @@
 const express = require("express");
 const app = new express();
 
+const router = require("./src/routes/api");
+
 // security middleware
 
 const expressRateLimit =  require("express-rate-limit");
@@ -24,6 +26,8 @@ app.use(hpp());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/v1", router);
 
 
 
